@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-31 00:04:38" itemprop="dateModified" datetime="2020-10-31T00:04:38+08:00">2020-10-31</time>
+                <time title="修改时间：2020-10-31 00:22:59" itemprop="dateModified" datetime="2020-10-31T00:22:59+08:00">2020-10-31</time>
               </span>
 
           
@@ -274,13 +274,8 @@
 <p>数据库就已经完成建立，接下来就要开始前端网页设计。</p>
 <h1 id="php中文乱码解决方法"><a href="#php中文乱码解决方法" class="headerlink" title="php中文乱码解决方法"></a>php中文乱码解决方法</h1><p>在一开始写代码时查表发现中文无正常法输出，会输出一些“火星文”，以下是各种类型乱码的解决方法。</p>
 <h2 id="HTML中中文乱码"><a href="#HTML中中文乱码" class="headerlink" title="HTML中中文乱码"></a>HTML中中文乱码</h2><p><img src="https://i.loli.net/2020/10/30/k983JZAHyTECodP.png" alt="1604060419318.png"></p>
-<p> HTML文件文件出现了乱码问题，那么你可以在head标签里面加入UTF8编码(国际化编码)：UTF-8是没有国家的编码，也就是独立于任何一种语言，任何语言都可以使用的。</p>
-<p>在<head>和<title>之间的一行输入一下代码</p>
-<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-![1604060429184.png](https://i.loli.net/2020/10/30/8XEyVY4hgLR7zPb.png)
-
-
-
+<p> HTML文件文件出现了乱码问题，那么你可以在head标签里面加入UTF8编码(国际化编码)：UTF-8是没有国家的编码，也就是独立于任何一种语言，任何语言都可以使用的。在和之间的一行输入一下代码</p>
+<p><img src="https://i.loli.net/2020/10/30/8XEyVY4hgLR7zPb.png" alt="1604060429184.png"></p>
 <p><img src="https://i.loli.net/2020/10/30/6pMyWiBKfvlOHxS.png" alt="1604060438643.png"></p>
 <h2 id="HTML和PHP混合的页面乱码"><a href="#HTML和PHP混合的页面乱码" class="headerlink" title="HTML和PHP混合的页面乱码"></a>HTML和PHP混合的页面乱码</h2><p>  按照解决html乱码所说的操作之外，还需要在PHP文件的最上面加入这句代码：</p>
  <?php
@@ -302,9 +297,6 @@ header("content-type:text/html;charset=utf-8");     //设置编码
 <ul>
 <li>首先使用<code>&lt;p&gt;</code>标签对输入框和按钮进行多行处理，并使用<code>&lt;a&gt;</code>标签标示各个输入框的作用</li>
 </ul>
-<blockquote>
-<p><code>&amp;nbsp;</code>空格符，为了让上下文字对齐</p>
-</blockquote>
 <p>而界面十分空白需要进行美化，在网站根目录建立一个<code>images</code>文件夹,将我们的背景文件放进去,添加一个<code>&lt;style type=&quot;text/css&quot;&gt;</code>来编写我们的样式：</p>
 <table>
 <thead>
@@ -376,7 +368,6 @@ header("content-type:text/html;charset=utf-8");     //设置编码
 <td>外边框边框线的宽度为1个像素，实线，颜色为#c0d0d3</td>
 </tr>
 </tbody></table>
-<p><code>&lt;input class=&#39;input&#39; type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;账户&quot;&gt;</code>观察代码发现多了个<code>class=&#39;input&#39;</code>，说明样式需要绑定到指定的标签中。</p>
 <p>需要一个白色的框框将其框起来，定义一个<code>class</code>样式<code>.box</code>，定义一个<code>div</code>将其绑定这个属性</p>
 <p><code>.boxtitle</code></p>
 <table>
@@ -464,7 +455,6 @@ header("content-type:text/html;charset=utf-8");     //设置编码
 <p><img src="https://i.loli.net/2020/10/30/UaMc3VDs8diHpSe.png" alt="1604068919542.png"></p>
 <p>这时再运行发现不会再跳转回登陆界面了，但留言成功后刷新并不会显示留言也不会报错；</p>
 <p>后来又开始更换php版本，换成7后会直接报错4行，换回五后就不会报错；</p>
-<p>后来</p>
 
       
     </div>
@@ -1070,7 +1060,7 @@ $(document).ready(function() {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4.4k字</span>
+  <span class="post-count">博客全站共4.3k字</span>
 </div>
 
         
