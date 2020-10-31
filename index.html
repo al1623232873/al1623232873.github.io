@@ -172,7 +172,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-10-31 00:19:35 / 修改时间：12:24:19" itemprop="dateCreated datePublished" datetime="2020-10-31T00:19:35+08:00">2020-10-31</time>
+              <time title="创建时间：2020-10-31 00:19:35 / 修改时间：13:14:15" itemprop="dateCreated datePublished" datetime="2020-10-31T00:19:35+08:00">2020-10-31</time>
             </span>
 
           
@@ -337,7 +337,7 @@
 </tr>
 </tbody></table>
 <h1 id="后端设计"><a href="#后端设计" class="headerlink" title="后端设计"></a>后端设计</h1><h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>路由我们使用文件包含实现，通过GET传参来确定包含不同的页面以实现不同页面的显示，在网站根目录（即www文件下）新建一个index.php，例如我们输入s=login就能将登陆界面包含进来，后面测试各个页面均以这个路由为主，</p>
-<p>在所有代码都弄好了后，进行检验时，发现我注册了一个账号后会自动跳转至登录界面，输入刚刚注册成功的账号后登陆，先弹出一个登陆成功的弹窗，然后会自动跳转到留言页面，而跳到留言页面时却弹出请登录的弹窗，又自动跳回登陆界面让我们登陆账号。</p>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p>在所有代码都弄好了后，进行检验时，发现我注册了一个账号后会自动跳转至登录界面，输入刚刚注册成功的账号后登陆，先弹出一个登陆成功的弹窗，然后会自动跳转到留言页面，而跳到留言页面时却弹出请登录的弹窗，又自动跳回登陆界面让我们登陆账号。</p>
 <p><img src="https://i.loli.net/2020/10/30/638J1AGaTdKSWtM.png" alt="1604064869435.png"></p>
 <p><img src="https://i.loli.net/2020/10/30/41c82ZfmJeVi7Ap.png" alt="1604064895324.png"></p>
 <p><img src="https://i.loli.net/2020/10/30/zkfeiAG4YIMJLw7.png" alt="1604064879692.png"></p>
@@ -350,11 +350,21 @@
 <p>但是无法显示留言的账号名是什么，同时系统也报错了；</p>
 <p><img src="https://i.loli.net/2020/10/30/qun8Yo3RmsQSehG.png" alt="1604065490785.png"></p>
 <p><img src="https://i.loli.net/2020/10/30/v39lZHk6MLuK1yr.png" alt="1604065571479.png"></p>
-<p>这是系统报错说未定义变量：_SESSION（完全无法理解），这个办法虽然能够跳转到留言页面，但并不可以显示留言的账号名，这个方法不可行；</p>
+<p>这是系统报错说未定义变量：_SESSION（完全无法解决），这个办法虽然能够跳转到留言页面，但并不可以显示留言的账号名，这个方法不可行；</p>
 <p>请教师兄后得知要用session之前需要先启动一个session_start();也就是说要做conn.php上输入session_start();代码；</p>
 <p><img src="https://i.loli.net/2020/10/30/UaMc3VDs8diHpSe.png" alt="1604068919542.png"></p>
-<p>这时再运行发现不会再跳转回登陆界面了，但留言成功后刷新并不会显示留言也不会报错；</p>
+<p>这时再运行发现不会再跳转回登陆界面了，但留言成功后刷新并不会显示留言也不会显示留言的账号名也不会报错；</p>
+<p><img src="https://i.loli.net/2020/10/31/YxJhMA8XO4jmrbS.png" alt="1604120742814.png"></p>
 <p>后来又开始更换php版本，换成7后会直接报错4行，换回五后就不会报错；</p>
+<p><img src="https://i.loli.net/2020/10/31/OTH7RiqbPlUs8ru.png" alt="1604120883915.png"></p>
+<p><img src="https://i.loli.net/2020/10/31/vqwZXTjsNSrKeVt.png" alt="1604120930004.png"></p>
+<p>上面的报错：</p>
+<p> <strong>Notice</strong>:  Use of undefined constant MYSQL_ASSOC - assumed ‘MYSQL_ASSOC’ in <strong>D:\phpStudy\PHPTutorial\WWW\app\list.php</strong> on line <strong>18</strong></p>
+<p> <strong>Warning</strong>:  mysqli_result::fetch_array() expects parameter 1 to be integer, string given in <strong>D:\phpStudy\PHPTutorial\WWW\app\list.php</strong> on line <strong>18</strong></p>
+<p> <strong>Notice</strong>:  Use of undefined constant MYSQL_ASSOC - assumed ‘MYSQL_ASSOC’ in <strong>D:\phpStudy\PHPTutorial\WWW\app\list.php</strong> on line <strong>21</strong></p>
+<p> <strong>Warning</strong>:  mysqli_result::fetch_array() expects parameter 1 to be integer, string given in <strong>D:\phpStudy\PHPTutorial\WWW\app\list.php</strong> on line <strong>21</strong> </p>
+<p>看不懂，一脸懵，看来换成php7行不通；</p>
+<p>后来请教了师姐，在师姐的帮助下这个小项目在师姐的电脑上可以完美运行，但在自己的电脑上依旧不可以显示留言和留言的账号名；</p>
 
       
     </div>
@@ -960,7 +970,7 @@ $(document).ready(function() {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.7k字</span>
+  <span class="post-count">博客全站共3.9k字</span>
 </div>
 
         
