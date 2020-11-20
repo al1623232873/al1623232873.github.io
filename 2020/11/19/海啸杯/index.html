@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/1.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="title:海啸杯web题学习笔记 G2mtu学生?打开题目所见  查看一下源码，没啥用  从愉悦大佬的wp中得到题目代码： 123456789101112&lt;?php  setcookie(&quot;user&quot;, &quot;0&quot;, time()+360);&#x2F;&#x2F;设置cookie  if(@$_SERVER[&quot;HTTP_X_FORWARDE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Blog of lgq">
+<meta property="og:url" content="http://example.com/2020/11/19/%E6%B5%B7%E5%95%B8%E6%9D%AF/index.html">
+<meta property="og:site_name" content="Blog of lgq">
+<meta property="og:description" content="title:海啸杯web题学习笔记 G2mtu学生?打开题目所见  查看一下源码，没啥用  从愉悦大佬的wp中得到题目代码： 123456789101112&lt;?php  setcookie(&quot;user&quot;, &quot;0&quot;, time()+360);&#x2F;&#x2F;设置cookie  if(@$_SERVER[&quot;HTTP_X_FORWARDE">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/D7hZRaTiEFYu2NO.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/JtEqsYVBLArouWG.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/V3cs2MavJbXuqfZ.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/yqsgGvdicw9tD2P.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/3ZCPQkOs6GThmHj.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/yc3RECAhkiDH6PX.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/F8ZMjsLN4rbTIHl.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/wB6GPqeT92K8RYC.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/bAvGaFTOgipxQ4R.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/5A37V4MCjtwToJF.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/SUwfOtRGngXoEKe.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/BcHtIGWorSYLDQ2.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/cChnGv5LPiADxI4.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/Iby9ZHzWY4xDuOR.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/pi3LQRtT2dPvB5m.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/lOPvfY1eWShMNHX.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/LdzitMmYNs7wxvk.png">
+<meta property="og:image" content="https://i.loli.net/2020/11/20/Z9rfKpXkweSOiE2.png">
+<meta property="article:published_time" content="2020-11-19T15:28:55.617Z">
+<meta property="article:modified_time" content="2020-11-20T13:25:19.050Z">
+<meta property="article:author" content="lgq">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/11/20/D7hZRaTiEFYu2NO.png">
+
+<link rel="canonical" href="http://example.com/2020/11/19/%E6%B5%B7%E5%95%B8%E6%9D%AF/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | Blog of lgq</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Blog of lgq</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/19/%E6%B5%B7%E5%95%B8%E6%9D%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lgq">
+      <meta itemprop="description" content="欢迎浏览， 请多多指教">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog of lgq">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-19 23:28:55" itemprop="dateCreated datePublished" datetime="2020-11-19T23:28:55+08:00">2020-11-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-20 21:25:19" itemprop="dateModified" datetime="2020-11-20T21:25:19+08:00">2020-11-20</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
+<h2 id="title-海啸杯web题学习笔记"><a href="#title-海啸杯web题学习笔记" class="headerlink" title="title:海啸杯web题学习笔记 "></a>title:海啸杯web题学习笔记 </h2><h1 id="G2mtu学生"><a href="#G2mtu学生" class="headerlink" title="G2mtu学生?"></a>G2mtu学生?</h1><p>打开题目所见</p>
+<p><img src="https://i.loli.net/2020/11/20/D7hZRaTiEFYu2NO.png" alt="1605799918243.png"></p>
+<p>查看一下源码，没啥用</p>
+<p><img src="https://i.loli.net/2020/11/20/JtEqsYVBLArouWG.png" alt="1605800469952.png"></p>
+<p>从愉悦大佬的wp中得到题目代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  setcookie(&quot;user&quot;, &quot;0&quot;, time()+360);&#x2F;&#x2F;设置cookie</span><br><span class="line">  if(@$_SERVER[&quot;HTTP_X_FORWARDED_FOR&quot;]!&#x3D;&quot;127.0.0.1&quot;)&#123;</span><br><span class="line">  	die(&quot;u no student in Gzmtu&quot;);</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">  	if($_COOKIE[&#39;user&#39;]&#x3D;&#x3D;1)&#123;</span><br><span class="line">  	 echo &quot;flag&#123;welcom_to_GZMTU_56456s4awdawdafafa&#125;&quot;;		</span><br><span class="line">  	&#125;else&#123;</span><br><span class="line">  		die(&quot;u no admin!&quot;);</span><br><span class="line">  	&#125;	</span><br><span class="line">  &#125;</span><br><span class="line">  ?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>HTTP_X_FORWARDED_FOR和X_FORWARDED_FOR是一样的，属于请求头的一部分；</p>
+<p>这个题的意思是：如果HTTP_X_FORWARDED_FOR=127.0.0.1而且user=1的话就会输出flag；</p>
+<p>所以解题方法就是通过burp抓包修改cookie将user=0改为user=1和设置X_FORWARDED_FOR=127.0.0.1(不区分大小写)即可。</p>
+<p><img src="https://i.loli.net/2020/11/20/V3cs2MavJbXuqfZ.png" alt="1605873667813.png"></p>
+<p><img src="https://i.loli.net/2020/11/20/yqsgGvdicw9tD2P.png" alt="1605873675110.png"></p>
+<p>不可以将X-Forwarded-For：127.0.0.1改为Http-X-Forwarded-For：127.0.0.1；</p>
+<p><img src="https://i.loli.net/2020/11/20/3ZCPQkOs6GThmHj.png" alt="1605873971984.png"></p>
+<h1 id="Who-are-you"><a href="#Who-are-you" class="headerlink" title="Who are you?"></a>Who are you?</h1><p>打开题目</p>
+<p><img src="https://i.loli.net/2020/11/20/yc3RECAhkiDH6PX.png" alt="1605874108056.png"></p>
+<p>随便输个1进去看看</p>
+<p><img src="https://i.loli.net/2020/11/20/F8ZMjsLN4rbTIHl.png" alt="1605874126412.png"></p>
+<p>查看源代码，都是一些前端代码没什么用；</p>
+<p>题目代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">libxml_disable_entity_loader(false);</span><br><span class="line">$data &#x3D; @file_get_contents(&#39;php:&#x2F;&#x2F;input&#39;);</span><br><span class="line">$resp &#x3D; &#39;&#39;;</span><br><span class="line">&#x2F;&#x2F;$flag&#x3D;&#39;flag&#123;79d10626-d27f-4569-a629-c9606d0378f2&#125;&#39;;</span><br><span class="line">if($data !&#x3D; false)&#123;</span><br><span class="line">    $dom &#x3D; new DOMDocument();</span><br><span class="line">    $dom-&gt;loadXML($data, LIBXML_NOENT);</span><br><span class="line">    ob_start();</span><br><span class="line">    $res  &#x3D; $dom-&gt;textContent;</span><br><span class="line">    $resp &#x3D; ob_get_contents();</span><br><span class="line">    ob_end_clean();</span><br><span class="line">    if ($res)&#123;</span><br><span class="line">        die($res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>解题方法：xxe外部实体注入+伪协议读取源码</p>
+<h1 id="无参数RCE"><a href="#无参数RCE" class="headerlink" title="无参数RCE"></a>无参数RCE</h1><p>题目代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F;flag in flag.php</span><br><span class="line">$a&#x3D;&quot;&quot;;</span><br><span class="line">if(&#39;;&#39; &#x3D;&#x3D;&#x3D; preg_replace(&#39;&#x2F;[^\W]+\((?R)?\)&#x2F;&#39;, &#39;&#39;, $_GET[&#39;code&#39;])) &#123;    </span><br><span class="line">    if(preg_match(&quot;&#x2F;ses|pos|end|next|name|chdir|var|impolode|tan|tall|sys|eval|var|high|show|read|base|url|print&#x2F;&quot;, $_GET[&#39;code&#39;]))&#123;</span><br><span class="line">        die(&quot;no no no !&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    eval(&quot;\$a&#x3D;&quot;.$_GET[&#39;code&#39;]);</span><br><span class="line">    if(preg_match(&#39;&#x2F;flag&#x2F;&#39;, $a))&#123;</span><br><span class="line">        die(&quot;no&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    echo($a);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    show_source(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+
+<p>先进行正则匹配，可以用嵌套函数，SESSIONID传参，读取请求头来执行，但后面又有许多过滤，将SESSIONID传参给ban掉了，将常用的数组控制函数给ban了，文件显示的<strong>show_souce</strong>以及<strong>highlight_file</strong>也ban了，能用的函数查阅完，最终有个控制数组的随机数函数<strong>array_rand</strong>以及文件<strong>file_get_contents</strong>，选择当前目录的函数有个<strong>current</strong>组合起来就行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file_get_contents(array_rand(array_flip(scandir(current(localeconv())))));</span><br></pre></td></tr></table></figure>
+
+<p>而后面将flag过滤了，又将base64ban掉了，用16进制编码一下好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin2hex(file_get_contents(array_rand(array_flip(scandir(current(localeconv()))))));</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/11/20/wB6GPqeT92K8RYC.png" alt="1605876046778.png"></p>
+<p>然后将它解码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo hex2bin(&quot;3c3f7068700d0a2f2f666c61677b39326139343135322d316635352d346363332d383837622d3161323639353738313131627d0d0a3f3e&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/11/20/bAvGaFTOgipxQ4R.png" alt="1605876082421.png"></p>
+<p><img src="https://i.loli.net/2020/11/20/5A37V4MCjtwToJF.png" alt="1605876091974.png"></p>
+<p>无法通过读取请求头来夺旗，毫无反应；</p>
+<h1 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h1><p>打开页面</p>
+<p><img src="https://i.loli.net/2020/11/20/SUwfOtRGngXoEKe.png" alt="1605876928813.png"></p>
+<p>先找到登陆页面，在网址后输入/admin即可</p>
+<p><img src="https://i.loli.net/2020/11/20/BcHtIGWorSYLDQ2.png" alt="1605877020483.png"></p>
+<p>然后用户名输入：admin  密码：admin8888登陆</p>
+<p><img src="https://i.loli.net/2020/11/20/cChnGv5LPiADxI4.png" alt="1605877115834.png"></p>
+<p>点击模板，编辑post.html</p>
+<p><img src="https://i.loli.net/2020/11/20/Iby9ZHzWY4xDuOR.png" alt="1605877445647.png"></p>
+<p>插入php代码</p>
+<p><img src="https://i.loli.net/2020/11/20/pi3LQRtT2dPvB5m.png" alt="1605877494252.png"></p>
+<p>点击关于我们进行页面修改</p>
+<p><img src="https://i.loli.net/2020/11/20/lOPvfY1eWShMNHX.png" alt="1605877560018.png"></p>
+<p>再返回页面，点击关于我们即可夺旗；</p>
+<p><img src="https://i.loli.net/2020/11/20/LdzitMmYNs7wxvk.png" alt="1605877611089.png"></p>
+<h1 id="神奇的登录框"><a href="#神奇的登录框" class="headerlink" title="神奇的登录框"></a>神奇的登录框</h1><p>打开页面</p>
+<p><img src="https://i.loli.net/2020/11/20/Z9rfKpXkweSOiE2.png" alt="1605877717399.png"></p>
+<p>查看页面源代码没啥用；</p>
+<p>题目源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">error_reporting(0);</span><br><span class="line">header(&quot;Content-Type: text&#x2F;html;charset&#x3D;utf-8&quot;);</span><br><span class="line">if( isset( $_POST[&#39;submit&#39;]  ) ) &#123;</span><br><span class="line">    &#x2F;&#x2F; Get input</span><br><span class="line">    $target &#x3D; $_REQUEST[&#39;site&#39;];</span><br><span class="line">            &#x2F;&#x2F; Determine OS and execute the ping command.</span><br><span class="line">        if( stristr( php_uname( &#39;s&#39; ), &#39;Windows NT&#39; ) ) &#123;</span><br><span class="line">            &#x2F;&#x2F; Windows</span><br><span class="line">            $cmd &#x3D; shell_exec( &#39;ping  &#39; . $target );</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            &#x2F;&#x2F; *nix</span><br><span class="line">            $cmd &#x3D; shell_exec( &#39;ping  -c 4 &#39; . $target );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+ 
+   <div>
+     <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+   </div>
+ 
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>lgq
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/2020/11/19/%E6%B5%B7%E5%95%B8%E6%9D%AF/" title="">http://example.com/2020/11/19/海啸杯/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/06/strf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="ssrf和无参数学习笔记">
+      <i class="fa fa-chevron-left"></i> ssrf和无参数学习笔记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-%E6%B5%B7%E5%95%B8%E6%9D%AFweb%E9%A2%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">title:海啸杯web题学习笔记 </span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#G2mtu%E5%AD%A6%E7%94%9F"><span class="nav-number"></span> <span class="nav-text">G2mtu学生?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Who-are-you"><span class="nav-number"></span> <span class="nav-text">Who are you?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0%E5%8F%82%E6%95%B0RCE"><span class="nav-number"></span> <span class="nav-text">无参数RCE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CMS"><span class="nav-number"></span> <span class="nav-text">CMS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A5%9E%E5%A5%87%E7%9A%84%E7%99%BB%E5%BD%95%E6%A1%86"><span class="nav-number"></span> <span class="nav-text">神奇的登录框</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lgq"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">lgq</p>
+  <div class="site-description" itemprop="description">欢迎浏览， 请多多指教</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lgq</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共9.3k字</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
