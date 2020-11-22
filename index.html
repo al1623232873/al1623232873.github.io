@@ -178,7 +178,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-21 20:17:25" itemprop="dateModified" datetime="2020-11-21T20:17:25+08:00">2020-11-21</time>
+                <time title="修改时间：2020-11-22 22:44:35" itemprop="dateModified" datetime="2020-11-22T22:44:35+08:00">2020-11-22</time>
               </span>
 
           
@@ -194,8 +194,6 @@
       
           <h1 id="G2mtu学生"><a href="#G2mtu学生" class="headerlink" title="G2mtu学生?"></a>G2mtu学生?</h1><p>打开题目所见</p>
 <p><img src="https://i.loli.net/2020/11/20/D7hZRaTiEFYu2NO.png" alt="1605799918243.png"></p>
-<p>查看一下源码，没啥用</p>
-<p><img src="https://i.loli.net/2020/11/20/JtEqsYVBLArouWG.png" alt="1605800469952.png"></p>
 <p>题目代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">  setcookie(&quot;user&quot;, &quot;0&quot;, time()+360);&#x2F;&#x2F;设置cookie</span><br><span class="line">  if(@$_SERVER[&quot;HTTP_X_FORWARDED_FOR&quot;]!&#x3D;&quot;127.0.0.1&quot;)&#123;</span><br><span class="line">  	die(&quot;u no student in Gzmtu&quot;);</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">  	if($_COOKIE[&#39;user&#39;]&#x3D;&#x3D;1)&#123;</span><br><span class="line">  	 echo &quot;flag&#123;welcom_to_GZMTU_56456s4awdawdafafa&#125;&quot;;		</span><br><span class="line">  	&#125;else&#123;</span><br><span class="line">  		die(&quot;u no admin!&quot;);</span><br><span class="line">  	&#125;	</span><br><span class="line">  &#125;</span><br><span class="line">  ?&gt;</span><br></pre></td></tr></table></figure>
 
@@ -209,9 +207,9 @@
 <p><img src="https://i.loli.net/2020/11/20/3ZCPQkOs6GThmHj.png" alt="1605873971984.png"></p>
 <h1 id="Who-are-you"><a href="#Who-are-you" class="headerlink" title="Who are you?"></a>Who are you?</h1><p>打开题目</p>
 <p><img src="https://i.loli.net/2020/11/20/yc3RECAhkiDH6PX.png" alt="1605874108056.png"></p>
-<p>随便输个1进去看看</p>
-<p><img src="https://i.loli.net/2020/11/20/F8ZMjsLN4rbTIHl.png" alt="1605874126412.png"></p>
-<p>查看源代码，都是一些前端代码没什么用；</p>
+<p>随便输个flag进去看看</p>
+<p><img src="https://i.loli.net/2020/11/22/wULiYd2fNPr9l1n.png" alt="1606045832973.png"></p>
+<p>没用出现想象中的flag</p>
 <p>题目代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">libxml_disable_entity_loader(false);</span><br><span class="line">$data &#x3D; @file_get_contents(&#39;php:&#x2F;&#x2F;input&#39;);</span><br><span class="line">$resp &#x3D; &#39;&#39;;</span><br><span class="line">&#x2F;&#x2F;$flag&#x3D;&#39;flag&#123;79d10626-d27f-4569-a629-c9606d0378f2&#125;&#39;;</span><br><span class="line">if($data !&#x3D; false)&#123;</span><br><span class="line">    $dom &#x3D; new DOMDocument();</span><br><span class="line">    $dom-&gt;loadXML($data, LIBXML_NOENT);</span><br><span class="line">    ob_start();</span><br><span class="line">    $res  &#x3D; $dom-&gt;textContent;</span><br><span class="line">    $resp &#x3D; ob_get_contents();</span><br><span class="line">    ob_end_clean();</span><br><span class="line">    if ($res)&#123;</span><br><span class="line">        die($res);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
@@ -250,8 +248,7 @@
 <p><img src="https://i.loli.net/2020/11/21/1WGumCstvDczd7J.png" alt="1605891796259.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;?code&#x3D;Show_source(Session_id(Session_start()));</span><br><span class="line">PHPSESSID&#x3D;flag.php</span><br></pre></td></tr></table></figure>
 
-
-
+<p>这个题也有尝试过用读取请求头来做，但行不通。</p>
 <h1 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h1><p>打开页面</p>
 <p><img src="https://i.loli.net/2020/11/20/SUwfOtRGngXoEKe.png" alt="1605876928813.png"></p>
 <p>先找到登陆页面，在网址后输入/admin即可</p>
