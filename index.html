@@ -147,7 +147,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/14/docker%E6%90%AD%E5%BB%BA/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/14/misc%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -161,7 +161,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/12/14/docker%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">docker搭建笔记</a>
+            <a href="/2020/12/14/misc%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">misc做题笔记</a>
         </h2>
 
         <div class="post-meta">
@@ -170,10 +170,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-14 12:10:29 / 修改时间：12:12:31" itemprop="dateCreated datePublished" datetime="2020-12-14T12:10:29+08:00">2020-12-14</time>
+              <time title="创建时间：2020-12-14 12:10:29" itemprop="dateCreated datePublished" datetime="2020-12-14T12:10:29+08:00">2020-12-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-16 21:29:19" itemprop="dateModified" datetime="2020-12-16T21:29:19+08:00">2020-12-16</time>
+              </span>
 
           
 
@@ -186,7 +192,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="表白"><a href="#表白" class="headerlink" title="表白"></a>表白</h1><p>打开题目下载了一个压缩文件，解压后发现里面有一张图片</p>
+<p><img src="https://i.loli.net/2020/12/16/eu9syB6gGKdqRiL.png" alt="1608025367615.png"></p>
+<p>一般来说就给一张图片给你的，一般都是考图片的隐写，用010编辑器打开看看</p>
+<p><img src="https://i.loli.net/2020/12/16/hDcNnWSF5kzQLmu.png" alt="1608025598772.png"></p>
+<p>尝试去改变它的高度，也就是将第二行中的第六个由00改为FF;</p>
+<p><img src="https://i.loli.net/2020/12/16/iPRejr5uxk4pB2C.png" alt="1608025683346.png"></p>
+<p>再保存退出查看图片，打开图片后发现只有一条黑色长柱；</p>
+<p><img src="https://i.loli.net/2020/12/16/UNo9DpEh4mxZTCq.png" alt="1608026119721.png"></p>
+<p>在裁剪掉黑色部分放大后得到下面这张图片。</p>
+<p><img src="https://i.loli.net/2020/12/16/SJlxUAVOBKW9mga.png" alt="1608026092570.png"></p>
+<h1 id="bw-加解密-图片中的密码"><a href="#bw-加解密-图片中的密码" class="headerlink" title="bw-加解密-图片中的密码"></a>bw-加解密-图片中的密码</h1><p>打开只有一张图片，按列先用010打开看看，在末尾发现了rar的文件头52617221</p>
+<p><img src="https://i.loli.net/2020/12/16/OZBXYRufmpawljM.png" alt="1608044377806.png"></p>
+<p>然后将这图片的后缀名从.jpg改为.rar,再解压就会发现一个文本</p>
+<p><img src="https://i.loli.net/2020/12/16/ExFY5pvT8WRqg7H.png" alt="1608044472117.png"></p>
+<p>打开后看到提示</p>
+<p><img src="https://i.loli.net/2020/12/16/tcfBnhKD5wGeQSJ.png" alt="1608044504711.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请将&quot;TWpBeE5ERXdNVFE9&quot;用Base64两次解密后得到密码。</span><br></pre></td></tr></table></figure>
+
+<p>打开burp软件，选择Decoder进行解码</p>
+<p><img src="https://i.loli.net/2020/12/16/L9WClabYfnVtvjr.png" alt="1608044592655.png"></p>
+<p>解码后得到一串数字：20141014</p>
+<h1 id="bw-图片隐写-64"><a href="#bw-图片隐写-64" class="headerlink" title="bw-图片隐写-64"></a>bw-图片隐写-64</h1><p>无法打开图片</p>
+<p><img src="https://i.loli.net/2020/12/16/9hY6JdImgBRK8ZG.png" alt="1608044802499.png"></p>
+<p>放进010看看，发现缺少gif文件头，在最前面加上GIF89即可打开</p>
+<p><img src="https://i.loli.net/2020/12/16/yw6uvZPs4NoDR9H.png" alt="1608044905734.png"></p>
+<p>打开后发现有个小黄人在64格中跳来跳去</p>
+<p>用GIF分帧器看看记录小黄人的跳的坐标得到：16  53  17  06  30  54  05  34  24  53  61  36  25  22  25  31  25  55  52  （从零开始算起）</p>
+<p>再将这一串坐标对照64进制表转换得：Q1RGe2FiY19kZWZfZ30</p>
+<p><img src="https://i.loli.net/2020/12/16/kKjtqYxQRMugw4d.png" alt="1608092688915.png"></p>
+<p>再将该串字符base64解码一下得到： CTF{abc_def_g}</p>
+<h1 id="bw-图片隐写-0707"><a href="#bw-图片隐写-0707" class="headerlink" title="bw-图片隐写-0707"></a>bw-图片隐写-0707</h1><p>按列用010打开看看</p>
+<p><img src="https://i.loli.net/2020/12/16/epiQREMTxPgSjYO.png" alt="1608123092387.png"></p>
+<p>发现这张图片是由iphone5拍的，而这张图片的高度明显感觉与iphone5的拍照的不同，感觉像是被截走了一部分；</p>
+<p>修改一下图片的高度也就是将红色部分从原先的06改为08，就可以看到被截走的部分；</p>
+<p><img src="https://i.loli.net/2020/12/16/mbUDIH7FPXw4rTf.png" alt="1608123345602.png"></p>
+<p><img src="https://i.loli.net/2020/12/16/pAyZCagqJmSXxGk.png" alt="1608123418886.png"></p>
+<p>从图可知flag为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Key&#123;TheISISPasswordIs&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="LSB"><a href="#LSB" class="headerlink" title="LSB"></a>LSB</h1><p>打开图片发现图片内容与标题毫无关联，怀疑有图片隐藏在里面，利用Stegsolve打开图片看看，发现左右转动都没有发现图片于是乎打开data extract工具将red blue green全部设置为零再保存打开一看发现一个二维码然后用手机扫一下就得到flag了</p>
+<p><img src="https://i.loli.net/2020/12/16/HN1gc8GrCoqnDiw.png" alt="1608124213179.png"></p>
+<p><img src="https://i.loli.net/2020/12/16/lo8xUdmYE3vLp25.png" alt="1608124224593.png"></p>
+
       
     </div>
 
@@ -238,7 +286,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-14 12:12:50" itemprop="dateModified" datetime="2020-12-14T12:12:50+08:00">2020-12-14</time>
+                <time title="修改时间：2020-12-16 22:40:06" itemprop="dateModified" datetime="2020-12-16T22:40:06+08:00">2020-12-16</time>
               </span>
 
           
@@ -280,6 +328,17 @@
 <p><img src="https://i.loli.net/2020/12/01/wWGOFztmqvET4f3.png" alt="1606661811725.png"></p>
 <p>将admin123465输入框中，得到flag</p>
 <p><img src="https://i.loli.net/2020/12/01/LD78aOBrlGVEhCq.png" alt="1606661894878.png"></p>
+<h1 id="Easyphp20201216"><a href="#Easyphp20201216" class="headerlink" title="Easyphp20201216"></a>Easyphp20201216</h1><p>打开题目所见</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">show_source(__FILE__);</span><br><span class="line">$a &#x3D; create_function(&quot;&quot;, &quot;echo(&#96;cat &#x2F;flag&#96;);&quot;);</span><br><span class="line">if(isset($_GET[&#39;a&#39;]))&#123;</span><br><span class="line">     $_GET[&#39;a&#39;]();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们只要运行这个create_function生成的隐藏函数就可以夺旗，但我们并不知道这个隐藏函数名是啥，这时我们可以先将代码在本地运行，打印$a出来；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">show_source(__FILE__);</span><br><span class="line">&#x2F;&#x2F;根据传递的参数创建一个匿名函数，并为其返回唯一名称</span><br><span class="line">$a &#x3D; create_function(&quot;&quot;, &quot;echo(&#96;cat &#x2F;flag&#96;);&quot;);</span><br><span class="line">&#x2F;&#x2F;检查变量是否被设置并且不为空</span><br><span class="line">if(isset($_GET[&#39;a&#39;]))&#123;</span><br><span class="line">     $_GET[&#39;a&#39;]();</span><br><span class="line">&#125;</span><br><span class="line">echo $a;</span><br><span class="line"></span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/12/16/IP8gYlFO5sNEynk.png" alt="1608129331305.png"></p>
+<p>这里明显可以看到有几个字符我们看不到所以有了几个空格，而这几个字符是%00（在网页上不会显示出来只有空格）,这时我们就得到了payload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;47.98.234.232:28061&#x2F;?a&#x3D;%00lambda_1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2020/12/16/ai5KmZ1kNEW6dj8.png" alt="1608129494882.png"></p>
 
       
     </div>
@@ -1734,7 +1793,7 @@ $(document).ready(function() {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.3k字</span>
+  <span class="post-count">博客全站共11.1k字</span>
 </div>
 
         
